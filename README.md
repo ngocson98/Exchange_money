@@ -106,12 +106,12 @@ Now let’s create a *restriction* in our entry box. So that user can enter only
         result = regex.match(string)
         return (string == "" or (string.count('.') <= 1 and result is not None))
 ### 5. Let’s create the main function.
-if __name__ == '__main__':
-    url = 'https://api.exchangerate-api.com/v4/latest/USD'
-    converter = chuyen_doi(url)
+    if __name__ == '__main__':
+       url = 'https://api.exchangerate-api.com/v4/latest/USD'
+       converter = chuyen_doi(url)
 
-    App(converter)
-    mainloop()
+       App(converter)
+       mainloop()
 ## Output
 ![Screenshot from 2021-09-19 00-13-51](https://user-images.githubusercontent.com/87347502/133896934-17159494-519d-4bf5-847b-dc32235f9df4.png)
 ## Finish
