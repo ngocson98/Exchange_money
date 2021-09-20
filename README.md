@@ -49,6 +49,7 @@ requests.get(url) load the page in our python program and then .json() will conv
             self.currency_converter = converter
 ***Converter***: Currency Converter object which we will use to convert currencies. Above code will create a Frame.
 + Let’s Create the ***Converter***
+
         #self.configure(background = 'blue')
         self.geometry("500x200")
         #Label
@@ -60,7 +61,9 @@ requests.get(url) load the page in our python program and then .json() will conv
         self.intro_label.place(x=112, y=3)
         self.date_label.place(x=160, y=50)
 ![project-window](https://user-images.githubusercontent.com/87347502/133896769-22fbb141-b31c-4747-8521-436e255c7aec.jpg)
+
 Now let’s create the entry box for the amount and options of currency in the frame. So That users can enter the amount and choose among currencies.
+
         # Entry box
         valid = (self.register(self.restrictNumberOnly), '%d', '%P')
         self.amount_field = Entry(self, bd=3, relief=tk.RIDGE, justify=tk.CENTER, validate='key', validatecommand=valid, width=16)
@@ -83,7 +86,9 @@ Now let’s create the entry box for the amount and options of currency in the f
         self.to_currency_dropdown.place(x = 340, y= 120)
         #self.converted_amount_field.place(x = 346, y = 150)
         self.converted_amount_field_label.place(x = 338, y = 150)
+        
 Now Let’s add the **CONVERT** button which will call the perform function.
+
         # Convert button
         self.convert_button = Button(self, text="Convert", fg="black", command=self.perform)
         self.convert_button.config(font=('Courier', 10, 'bold'))
@@ -101,10 +106,11 @@ Command = self.perform – It means on click it will call perform().
         self.converted_amount_field_label.config(text=str(converted_amount))
 #### RestrictNumberOnly() method:
 Now let’s create a *restriction* in our entry box. So that user can enter only a number in Amount Field. We have discussed earlier that this will be done by our *RrestricNumberOnly method.*
-    def restrictNumberOnly(self, action, string):
-        regex = re.compile(r"[0-9,]*?(\.)?[0-9,]*$")
-        result = regex.match(string)
-        return (string == "" or (string.count('.') <= 1 and result is not None))
+
+     def restrictNumberOnly(self, action, string):
+         regex = re.compile(r"[0-9,]*?(\.)?[0-9,]*$")
+         result = regex.match(string)
+         return (string == "" or (string.count('.') <= 1 and result is not None))
 ### 5. Let’s create the main function.
     if __name__ == '__main__':
        url = 'https://api.exchangerate-api.com/v4/latest/USD'
